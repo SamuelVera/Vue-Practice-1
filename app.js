@@ -49,6 +49,10 @@ const vueConfig = {
       this.buttonText = this.showAlbums ? "Show albums" : "Hide albums";
       this.showAlbums = !this.showAlbums;
     },
+    /**Toggle fav of given album */
+    toggleFav(album) {
+      album.isFav = !album.isFav;
+    },
   },
 };
 //Instantiate the Vue App

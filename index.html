@@ -21,8 +21,14 @@
       }
       a {
         text-decoration: none;
+        opacity: 1;
+        transition: 0.3s;
+      }
+      a:hover {
+        opacity: 0.7;
       }
       li {
+        transition: 0.3s;
         list-style-type: none;
         background: #fff;
         margin: 20px auto;
@@ -31,6 +37,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        cursor: pointer;
       }
       img {
         max-width: 75px;
@@ -61,13 +68,14 @@
               //Dynamic class names, key is applied as class name if the value assigned is true
               fav: album.isFav
             }"
+            @click="toggleFav(album)"
           >
             <!--Other way of attribute bind includes only using :attribute-->
             <img :src="album.imageUrl" :alt="album.alt" />
             <h3>
               <!--Attribute binding-->
               <!--v-bind:attribute-->
-              <a v-bind:href="album.bandcampUrl"
+              <a v-bind:href="album.bandcampUrl" target="__blank"
                 >{{album.title}} ({{album.date}})</a
               >
             </h3>
