@@ -6,28 +6,42 @@
     <title>Vue JS without CLI</title>
     <!--Installation script -->
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
     <h1>Hello Vue.JS</h1>
     <div id="root">
       <!--Can be handled by Vue app since it's inside the root-->
       <!--Conditional rendering directive (if true renders)-->
+      <!--Other way with v-show directive-->
+      <!--v-show uses CSS while v-if removes from DOM-->
+      <!--v-show is better for elements that will be shown and hidden many times-->
       <div v-if="showAlbums">
         <!--Dynamic value from template-->
         <p>{{title}} ({{date}}) - {{author}}</p>
         <p>Views: {{views}}</p>
       </div>
-      <!--Else directive, only usable after an if-->
-      <div v-else>
-        <p>Albums hidden</p>
-      </div>
       <button @click="toggleShowAlbums"><span>{{buttonText}}</span></button>
-
-      <!--Other way with v-show directive-->
-      <!--v-show uses CSS while v-if removes from DOM-->
-      <!--v-show is better for elements that will be shown and hidden many times-->
-      <div v-show="showAlbums">
-        <p>Showing Albums</p>
+      <br />
+      <!--Other mouse events-->
+      <!--Include event callback object and custom arguments-->
+      <div class="box" @mouseover="handleEvent($event, 5)">
+        Mouse over (enter)
+      </div>
+      <!--Include only event object-->
+      <div class="box" @mouseleavue="handleEvent">Mouse leave</div>
+      <div class="box" @dbclick="handleEvent">Double click</div>
+      <div class="box" @mousemove="handleMousemove">
+        Mouse position inside this box ({{x}},{{y}})
       </div>
     </div>
     <script src="app.js"></script>

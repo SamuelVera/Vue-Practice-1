@@ -12,6 +12,8 @@ const vueConfig = {
       date: new Date(2020, 11, 5).toLocaleDateString(),
       views: 103046,
       buttonText: "Hide albums",
+      x: 0,
+      y: 0,
     };
   },
   /**Methods that can be used by the Vue scope */
@@ -19,6 +21,16 @@ const vueConfig = {
     toggleShowAlbums() {
       this.buttonText = this.showAlbums ? "Show albums" : "Hide albums";
       this.showAlbums = !this.showAlbums;
+    },
+    handleEvent(e, data) {
+      console.log(e.type);
+      if (data) {
+        console.log("With data", data);
+      }
+    },
+    handleMousemove(e) {
+      this.x = e.offsetX;
+      this.y = e.offsetY;
     },
   },
 };
