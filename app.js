@@ -6,10 +6,18 @@ const vueConfig = {
   data() {
     return {
       //Data accesible from Vue app scope
-      title: "The Final Empire",
-      author: "Brandon Sanderson",
-      age: 45,
+      title: "The World is Fvcked",
+      author: "Sewerslvt",
+      date: new Date(2020, 11, 5).toLocaleDateString(),
+      views: 103046,
     };
+  },
+  /**Methods that can be used by the Vue scope */
+  methods: {
+    changeAlbum(newTitle) {
+      //this.title = "New Title"; //Without arguments
+      this.title = newTitle; //With arguments
+    },
   },
 };
 //Instantiate the Vue App
