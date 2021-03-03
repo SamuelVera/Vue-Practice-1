@@ -6,8 +6,8 @@ const vueConfig = {
   data() {
     return {
       //Data accesible from Vue app scope
-      showAlbums: true,
-      buttonText: "Hide albums",
+      showOnlyFavAlbums: false,
+      buttonText: "Show only favorite albums",
       albums: [
         {
           title: "The World is Fvcked",
@@ -45,13 +45,28 @@ const vueConfig = {
   },
   /**Methods that can be used by the Vue scope */
   methods: {
-    toggleShowAlbums() {
-      this.buttonText = this.showAlbums ? "Show albums" : "Hide albums";
-      this.showAlbums = !this.showAlbums;
+    toggleShowFavAlbums() {
+      this.buttonText = this.showOnlyFavAlbums
+        ? "Show only favorite albums"
+        : "Show all albums";
+      this.showOnlyFavAlbums = !this.showOnlyFavAlbums;
     },
     /**Toggle fav of given album */
     toggleFav(album) {
       album.isFav = !album.isFav;
+    },
+  },
+  /**
+   * Computed properties, Properties which values are computed from
+   * other properties in the data object
+   *
+   * Computed properties are called from the template the same as normal
+   * data properties
+   * */
+  computed: {
+    /**Filters the albums based on if they are favorite or not */
+    favAlbums() {
+      return this.albums.filter((album) => album.isFav);
     },
   },
 };
