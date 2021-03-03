@@ -12,16 +12,22 @@
     <div id="root">
       <!--Can be handled by Vue app since it's inside the root-->
       <!--Conditional rendering directive (if true renders)-->
-      <div v-if="true">
+      <div v-if="showAlbums">
         <!--Dynamic value from template-->
         <p>{{title}} ({{date}}) - {{author}}</p>
         <p>Views: {{views}}</p>
-        <!--On event directive-->
-        <!-- v-on:event-name -->
-        <button v-on:click="views++;">Increase views</button>
-        <button v-on:click="views--;">Remove views</button>
-        <!--@event with function reference (Don't invoke just reference)-->
-        <div @click="changeAlbum('Worthlessness Selected')">Change album</div>
+      </div>
+      <!--Else directive, only usable after an if-->
+      <div v-else>
+        <p>Albums hidden</p>
+      </div>
+      <button @click="toggleShowAlbums"><span>{{buttonText}}</span></button>
+
+      <!--Other way with v-show directive-->
+      <!--v-show uses CSS while v-if removes from DOM-->
+      <!--v-show is better for elements that will be shown and hidden many times-->
+      <div v-show="showAlbums">
+        <p>Showing Albums</p>
       </div>
     </div>
     <script src="app.js"></script>
