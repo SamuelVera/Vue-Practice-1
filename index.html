@@ -7,16 +7,40 @@
     <!--Installation script -->
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <style>
-      .box {
-        padding: 100px 0;
-        width: 400px;
-        text-align: center;
-        background: #ddd;
-        margin: 20px;
-        display: inline-block;
+      body {
+        background: #eee;
+        max-width: 960px;
+        margin: 20px auto;
+      }
+      p,
+      h3,
+      ul {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      li {
+        list-style-type: none;
+        background: #fff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
       img {
         max-width: 75px;
+      }
+      li.fav {
+        background: #9400d3;
+        color: white;
+      }
+      li.fav > h3 > a {
+        color: white;
       }
     </style>
   </head>
@@ -31,14 +55,21 @@
       <div v-if="showAlbums">
         <ul>
           <!--v-for directive, iterates the element of the declaration with the element accesible-->
-          <li v-for="album in albums">
+          <li
+            v-for="album in albums"
+            :class="{
+              //Dynamic class names, key is applied as class name if the value assigned is true
+              fav: album.isFav
+            }"
+          >
             <!--Other way of attribute bind includes only using :attribute-->
             <img :src="album.imageUrl" :alt="album.alt" />
             <h3>
               <!--Attribute binding-->
               <!--v-bind:attribute-->
-              <a v-bind:href="album.bandcampUrl">{{album.title}}</a>
-              ({{album.date}})
+              <a v-bind:href="album.bandcampUrl"
+                >{{album.title}} ({{album.date}})</a
+              >
             </h3>
             <p>{{album.author}}</p>
             <p>Views: {{album.views}}</p>

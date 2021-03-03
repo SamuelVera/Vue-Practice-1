@@ -17,6 +17,7 @@ const vueConfig = {
           bandcampUrl: "https://sewerslvt.com/album/the-world-is-fvcked",
           alt: "The World is Fvcked",
           imageUrl: "https://f4.bcbits.com/img/a1273865211_16.jpg",
+          isFav: true,
         },
         {
           title: "Drowning In The Sewer",
@@ -26,6 +27,7 @@ const vueConfig = {
           bandcampUrl: "https://sewerslvt.com/album/drowning-in-the-sewer",
           alt: "Drowning In The Sewer",
           imageUrl: "https://f4.bcbits.com/img/a0515657606_16.jpg",
+          isFav: false,
         },
         {
           title: "Everything Flows",
@@ -36,6 +38,7 @@ const vueConfig = {
             "https://tanpopocrisis.bandcamp.com/album/everything-flows",
           alt: "Everything Flows",
           imageUrl: "https://f4.bcbits.com/img/a0092087838_16.jpg",
+          isFav: true,
         },
       ],
     };
