@@ -15,6 +15,9 @@
         margin: 20px;
         display: inline-block;
       }
+      img {
+        max-width: 75px;
+      }
     </style>
   </head>
   <body>
@@ -29,7 +32,14 @@
         <ul>
           <!--v-for directive, iterates the element of the declaration with the element accesible-->
           <li v-for="album in albums">
-            <h3>{{album.title}} ({{album.date}})</h3>
+            <!--Other way of attribute bind includes only using :attribute-->
+            <img :src="album.imageUrl" :alt="album.alt" />
+            <h3>
+              <!--Attribute binding-->
+              <!--v-bind:attribute-->
+              <a v-bind:href="album.bandcampUrl">{{album.title}}</a>
+              ({{album.date}})
+            </h3>
             <p>{{album.author}}</p>
             <p>Views: {{album.views}}</p>
           </li>
