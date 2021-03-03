@@ -26,23 +26,17 @@
       <!--v-show uses CSS while v-if removes from DOM-->
       <!--v-show is better for elements that will be shown and hidden many times-->
       <div v-if="showAlbums">
-        <!--Dynamic value from template-->
-        <p>{{title}} ({{date}}) - {{author}}</p>
-        <p>Views: {{views}}</p>
+        <ul>
+          <!--v-for directive, iterates the element of the declaration with the element accesible-->
+          <li v-for="album in albums">
+            <h3>{{album.title}} ({{album.date}})</h3>
+            <p>{{album.author}}</p>
+            <p>Views: {{album.views}}</p>
+          </li>
+        </ul>
       </div>
       <button @click="toggleShowAlbums"><span>{{buttonText}}</span></button>
       <br />
-      <!--Other mouse events-->
-      <!--Include event callback object and custom arguments-->
-      <div class="box" @mouseover="handleEvent($event, 5)">
-        Mouse over (enter)
-      </div>
-      <!--Include only event object-->
-      <div class="box" @mouseleavue="handleEvent">Mouse leave</div>
-      <div class="box" @dbclick="handleEvent">Double click</div>
-      <div class="box" @mousemove="handleMousemove">
-        Mouse position inside this box ({{x}},{{y}})
-      </div>
     </div>
     <script src="app.js"></script>
   </body>

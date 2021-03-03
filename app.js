@@ -7,13 +7,27 @@ const vueConfig = {
     return {
       //Data accesible from Vue app scope
       showAlbums: true,
-      title: "The World is Fvcked",
-      author: "Sewerslvt",
-      date: new Date(2020, 11, 5).toLocaleDateString(),
-      views: 103046,
       buttonText: "Hide albums",
-      x: 0,
-      y: 0,
+      albums: [
+        {
+          title: "The World is Fvcked",
+          author: "Sewerslvt",
+          date: new Date(2020, 11, 5).toLocaleDateString(),
+          views: 103046,
+        },
+        {
+          title: "Drowning In The Sewer",
+          author: "Sewerslvt",
+          date: new Date(2019, 5, 11).toLocaleDateString(),
+          views: 488554,
+        },
+        {
+          title: "Everything Flows",
+          author: "Tanpopo Crisis",
+          date: new Date(2016, 7, 22).toLocaleDateString(),
+          views: 167,
+        },
+      ],
     };
   },
   /**Methods that can be used by the Vue scope */
@@ -21,16 +35,6 @@ const vueConfig = {
     toggleShowAlbums() {
       this.buttonText = this.showAlbums ? "Show albums" : "Hide albums";
       this.showAlbums = !this.showAlbums;
-    },
-    handleEvent(e, data) {
-      console.log(e.type);
-      if (data) {
-        console.log("With data", data);
-      }
-    },
-    handleMousemove(e) {
-      this.x = e.offsetX;
-      this.y = e.offsetY;
     },
   },
 };
